@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
@@ -14,6 +14,9 @@ class NewsArticle(Base):
 
     id = Column(Integer, primary_key=True)
     title = Column(String(255), nullable=False)
+    description = Column(Text)
     content = Column(Text)
     author = Column(String(100))
-    published_at = Column(DateTime)
+    publishedAt = Column(DateTime)
+    url = Column(Text)
+    urlToImage = Column(Text)

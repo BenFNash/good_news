@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 
 @dataclass
 class NewsSource:
@@ -19,3 +19,5 @@ class NewsArticle:
     def __post_init__(self):
         self.source = NewsSource(**self.source)
 
+    def dict(self):
+        return {k: v for k, v in asdict(self).items()}
